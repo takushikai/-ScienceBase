@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+   <title>データベースアプリtest</title>
+</head>
+<body>
+   <select id="file_menu">
+      <option hidden>ファイル</option>
+      <option>一時保存</option>
+      <option>.CSVを開く</option>
+      <option>.CSVを保存</option>
+   </select>
+
+   <select id="data_menu">
+      <option hidden>データ</option>
+      <option>検索</option>
+      <option>My関数</option>
+      <option>My関数を作成</option>
+   </select>
+
+   <select id="help_menu">
+      <option hidden>ヘルプ</option>
+      <option>使い方</option>
+      <option>このアプリについて</option>
+   </select>
+
+   <br>
+
+   <text>列</text><input id="column_input">
+   <button onclick="dataSortUp(processed_data)">昇順ソート</button>
+   <button onclick="dataSortDown(processed_data)">降順ソート</button>
+   <br>
+   <text>式</text><input id="formula_input">
+   <button onclick="dataFilter(processed_data)" id="run_button">実行</button>
+   <br>
+   <button onclick="Reset()">リセット</button>
+
+   
+   <!--ファイル選択（hidden）-->
+   <input type="file" id="selfile" accept=".csv" hidden>
+
+   <!--表-->
+   <!--一番上の行はタイトル（tableTitleArea）-->
+   <table border="1" contenteditable="true">
+      <thead>
+        <tr id="tableTitleArea">
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+   </table>
+
+
+   <script src="js/main.js"></script>
+   <script src="js/getCSV.js"></script>
+   <script src="js/data_process.js"></script>
+   <script src="js/menuControl.js"></script>
+   <script src="js/createCSV.js"></script>
+   <link rel="stylesheet" href="layout.css">
+</body>
+</html>
